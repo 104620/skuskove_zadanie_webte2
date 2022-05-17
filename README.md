@@ -3,5 +3,5 @@
 @Authors:
           Ivan Cicka
           Jan Hrćan
-          Daniel Kiš
+          Jovan Kiš
           Paljko Urbanek
