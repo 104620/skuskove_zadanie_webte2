@@ -28,7 +28,7 @@
 <br><br>
 
 <div class="container">
-    <h1>Animácia dynamického systému „tlmič automobil“</h1>
+    <h1 id="h1"></h1>
     <form class="marginBottom" action="index.php" method="post">
 
         <div class="grid">
