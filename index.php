@@ -17,17 +17,27 @@
 </head>
 
 <body>
-<br><br><br>
+
+<div id="nav">
+    <div class="flag">
+        <abbr title="Slovenčina" id="sk" onclick="slovak()"></abbr>
+        <abbr title="English" id="us" onclick="english()"></abbr>
+    </div>
+</div>
+
+<br><br>
+
 <div class="container">
     <h1>Animácia dynamického systému „tlmič automobil“</h1>
     <form class="marginBottom">
-        <label for="test"></label>
+        <label for="test">Test</label>
         <input id="test" type="text">
         <button type="submit">Submit</button>
     </form>
     <p>&copy; Ivan Cicka, Jan Hrćan, Jovan Kiš, Paljko Urbanek</p>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>
 </html>
