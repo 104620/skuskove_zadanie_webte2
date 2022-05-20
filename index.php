@@ -1,5 +1,15 @@
 <?php
 
+$servername = "localhost";
+$username = "xhrcan";
+$password = "SQsBCnIEq5Vnxum";
+$dbname = "finale";
+
+if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['k3']) && isset($_POST['f1']) &&
+    isset($_POST['f2']) && isset($_POST['m1']) && isset($_POST['m2'])){
+    echo "hooray";
+}
+
 ?>
 
 <!-- Dizajn trochu inspirovany pracou pana Mateja Rabeka -->
@@ -13,6 +23,7 @@
     <link rel="icon" type="image/x-icon" href="./fei.png">
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/script.js" defer></script>
+    <script src="js/anim.js" defer></script>
     <title>FinalCountdown</title>
 </head>
 
@@ -28,41 +39,41 @@
 <br><br>
 
 <div class="container">
-    <h1 id="h1"></h1>
+    <h1 id="h1">.</h1>
     <form class="marginBottom" action="index.php" method="post">
 
         <div class="grid">
             <div>
                 <label class="label" for="k1">k1</label>
-                <input id="k1" type="number">
+                <input id="k1" name="k1" type="number">
             </div>
             <div>
                 <label class="label" for="k2">k2</label>
-                <input id="k2" type="number">
+                <input id="k2" name="k2" type="number">
             </div>
             <div>
                 <label class="label" for="k3">k3</label>
-                <input id="k3" type="number">
+                <input id="k3" name="k3" type="number">
             </div>
         </div>
         <div class="grid">
             <div>
                 <label class="label" for="f1">F1</label>
-                <input id="f1" type="number">
+                <input id="f1" name="f1" type="number">
             </div>
             <div>
                 <label class="label" for="f2">F2</label>
-                <input id="f2" type="number">
+                <input id="f2" name="f2" type="number">
             </div>
         </div>
         <div class="grid">
             <div>
                 <label class="label" for="m1">m1</label>
-                <input id="m1" type="number">
+                <input id="m1" name="m1" type="number">
             </div>
             <div>
                 <label class="label" for="m2">m2</label>
-                <input id="m2" type="number">
+                <input id="m2" name="m2" type="number">
             </div>
         </div>
         <br>
@@ -84,7 +95,7 @@
     <p>&copy; Ivan Cicka, Jan Hrćan, Jovan Kiš, Paljko Urbanek</p>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>
 </html>
