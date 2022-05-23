@@ -3,11 +3,33 @@
 $servername = "localhost";
 $username = "xhrcan";
 $password = "SQsBCnIEq5Vnxum";
-$dbname = "finale";
+$dbname = "final";
 
-if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['k3']) && isset($_POST['f1']) &&
-    isset($_POST['f2']) && isset($_POST['m1']) && isset($_POST['m2'])){
-    echo "hooray";
+if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
+    isset($_POST['b2']) && isset($_POST['m1']) && isset($_POST['m2'])){
+
+    $currentDate = date('Y-m-d H:i:s', time());
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $conn->prepare("INSERT INTO info (date, k1, k2, m1, m2, b1, b2, was_successful)
+                            VALUES(\"" . $currentDate . "\", \"". $_POST['k1'] ."\", \"" . $_POST['k2'] . "\",
+                            \"". $_POST['m1'] ."\", \"". $_POST['m2'] ."\", \"". $_POST['b1'] ."\",
+                            \"". $_POST['b2'] ."\", true)");
+        $stmt->execute();
+
+    } catch (PDOException $e) {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $conn->prepare("INSERT INTO info (date, was_successful, error)
+                        VALUES(\"" . $currentDate . "\", false, \"" . strval($e->getMessage()) . "\")");
+        $stmt->execute();
+    } finally {
+        $conn = null;
+    }
 }
 
 ?>
@@ -44,38 +66,35 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['k3']) && isset($_
 
         <div class="grid">
             <div>
-                <label class="label" for="k1">k1</label>
-                <input id="k1" name="k1" type="number">
-            </div>
-            <div>
-                <label class="label" for="k2">k2</label>
-                <input id="k2" name="k2" type="number">
-            </div>
-            <div>
-                <label class="label" for="k3">k3</label>
-                <input id="k3" name="k3" type="number">
-            </div>
-        </div>
-        <div class="grid">
-            <div>
-                <label class="label" for="f1">F1</label>
-                <input id="f1" name="f1" type="number">
-            </div>
-            <div>
-                <label class="label" for="f2">F2</label>
-                <input id="f2" name="f2" type="number">
-            </div>
-        </div>
-        <div class="grid">
-            <div>
-                <label class="label" for="m1">m1</label>
+                <label class="label" for="m1">m1: </label>
                 <input id="m1" name="m1" type="number">
             </div>
             <div>
-                <label class="label" for="m2">m2</label>
+                <label class="label" for="m2">m2: </label>
                 <input id="m2" name="m2" type="number">
             </div>
         </div>
+        <div class="grid">
+            <div>
+                <label class="label" for="k1">k1: </label>
+                <input id="k1" name="k1" type="number">
+            </div>
+            <div>
+                <label class="label" for="k2">k2: </label>
+                <input id="k2" name="k2" type="number">
+            </div>
+        </div>
+        <div class="grid">
+            <div>
+                <label class="label" for="b1">B1: </label>
+                <input id="b1" name="b1" type="number">
+            </div>
+            <div>
+                <label class="label" for="b2">B2: </label>
+                <input id="b2" name="b2" type="number">
+            </div>
+        </div>
+
         <br>
 
         <div class="marginBottom">
