@@ -25,7 +25,7 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $conn->prepare("INSERT INTO info (date, was_successful, error)
-                        VALUES(\"" . $currentDate . "\", false, \"" . strval($e->getMessage()) . "\")");
+                        VALUES(\"" . $currentDate . "\", false, \"" . $e->getMessage() . "\")");
         $stmt->execute();
     } finally {
         $conn = null;
