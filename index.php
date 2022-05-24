@@ -44,6 +44,7 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="./fei.png">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="js/svg.min.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/anim.js" defer></script>
     <title>FinalCountdown</title>
