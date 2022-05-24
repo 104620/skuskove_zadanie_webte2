@@ -1,7 +1,7 @@
 <?php
-header('Access-Control-Allow-Origin: https://site51.webte.fei.stuba.sk/zaverecne/t.json');
-//header('Content-Type: application/json; charset=utf-8');
-//die(file_get_contents('t.json'));
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,7 +15,7 @@ header('Access-Control-Allow-Origin: https://site51.webte.fei.stuba.sk/zaverecne
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="script/myscript.js"></script>
+
 </head>
 <body>
     <div>
@@ -31,6 +31,7 @@ header('Access-Control-Allow-Origin: https://site51.webte.fei.stuba.sk/zaverecne
         </div>
     </div>
 
+    <script src="script/myscript.js"></script>
     <script>plotDataChart();</script>
 </body>
 </html>
