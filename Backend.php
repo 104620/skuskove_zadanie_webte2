@@ -2,27 +2,51 @@
 require_once "octave-daemon/include/Octave_lib.php";
 require "Converter.php";
 
+$servername = "localhost";
+$username = "xcickai1";
+$password = "iyXXrqtyLr8buAk";
+$dbname = "final";
 
-//NACIM POVIAZAT INDEX AJ TEMTO SERVER TOTO ODKOMENTARISAT
+if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
+    isset($_POST['b2']) && isset($_POST['m1']) && isset($_POST['m2'])){
 
+    $currentDate = date('Y-m-d H:i:s', time());
 
-//if(isset($_POST["k1"]) && isset($_POST["k2"]) && isset($_POST["m1"])&& isset($_POST["m2"])&& isset($_POST["b1"])&& isset($_POST["b2"])){
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-//    $k1 =$_POST["k1"];
-//    $k2 =$_POST["k2"];
-//    $m1 =$_POST["m1"];
-//    $m2 =$_POST["m2"];
-//    $F1 =$_POST["b1"];
-//    $F2 =$_POST["b2"];
+        $stmt = $conn->prepare("INSERT INTO info (date, k1, k2, m1, m2, b1, b2, was_successful)
+                            VALUES(\"" . $currentDate . "\", \"". $_POST['k1'] ."\", \"" . $_POST['k2'] . "\",
+                            \"". $_POST['m1'] ."\", \"". $_POST['m2'] ."\", \"". $_POST['b1'] ."\",
+                            \"". $_POST['b2'] ."\", true)");
+        $stmt->execute();
+
+    } catch (PDOException $e) {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $conn->prepare("INSERT INTO info (date, was_successful, error)
+                        VALUES(\"" . $currentDate . "\", false, \"" . $e->getMessage() . "\")");
+        $stmt->execute();
+    } finally {
+        $conn = null;
+    }
+    $k1 =$_POST["k1"];
+    $k2 =$_POST["k2"];
+    $m1 =$_POST["m1"];
+    $m2 =$_POST["m2"];
+    $b1 =$_POST["b1"];
+    $b2 =$_POST["b2"];
 
 
 //KED SA POVIAZE INDEX TOTO ZAKOMENTUVAT
-    $m1 = 2500;
-    $m2 = 320;
-    $k1 = 80000;
-    $k2 = 500000;
-    $b1 = 350;
-    $b2 = 15020;
+//    $m1 = 2500;
+//    $m2 = 320;
+//    $k1 = 80000;
+//    $k2 = 500000;
+//    $b1 = 350;
+//    $b2 = 15020;
 //
 
 
@@ -64,6 +88,6 @@ x1 = toJSON(x);
     $octave->run("save('OctaveGeneratedFiles/x.json','x1')");
 
 header("Refresh:0");
-//}
+}
 
 ?>

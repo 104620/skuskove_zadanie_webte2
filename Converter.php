@@ -23,6 +23,7 @@ if(file_exists("OctaveGeneratedFiles/y.json")){
     $fp = fopen('OctaveGeneratedFiles/xyt.json', 'w');
     fwrite($fp, $xyt);
     fclose($fp);
+    header('Location: index.php');
 }
 
 
@@ -40,15 +41,8 @@ function ToJSONConverter($fp,$name) {
         if (!feof($fp)) {
             echo "Error: unexpected fgets() fail\n";
         }
-        //var_dump($json);
         fclose($fp);
-
     }
-
-    //AK PAKOVI NENACIM OSOBITNE XYT TAK TOTO MOZEM VITREIT
-    $fp = fopen('OctaveGeneratedFiles/'.$name.'.json', 'w');
-    fwrite($fp, json_encode($json));
-    fclose($fp);
-
     return $json;
+
 }
