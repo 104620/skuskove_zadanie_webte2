@@ -7,6 +7,7 @@ const anim = document.getElementById("anim");               // Animation checkbo
 const graph = document.getElementById("graph");             // Graph checkbox
 
 // Language elements
+const mailLabel = document.getElementById("mailLabel");
 const animLabel = document.getElementById("animLabel");
 const graphLabel = document.getElementById("graphLabel");
 const button = document.getElementById("button");
@@ -26,14 +27,17 @@ graph.addEventListener("change", () => {
 const language = {
     // English text
     len:{
+        mailLabel: "Input mail for sending log export",
         button: "Submit",
         animLabel: "Show animation",
         graphLabel: "Show graph",
         h1: "Animation of a dynamic system \"shock absorber\""
+
     },
 
     // Slovak text
     lsk:{
+        mailLabel: "Vneste mail pre posielanie exportu logov",
         button: "Potvrď",
         animLabel: "Prikáž animáciu",
         graphLabel: "Prikáž graf",
@@ -66,6 +70,7 @@ function english() {
     // Remember the selected language
     localStorage.setItem("language", "en");
 
+    mailLabel.textContent = language.len.mailLabel;
     button.textContent = language.len.button;
     animLabel.textContent = language.len.animLabel;
     graphLabel.textContent = language.len.graphLabel;
@@ -80,6 +85,7 @@ function slovak() {
     // Remember the selected language
     localStorage.setItem("language", "sk");
 
+    mailLabel.textContent = language.lsk.mailLabel;
     button.textContent = language.lsk.button;
     animLabel.textContent = language.lsk.animLabel;
     graphLabel.textContent = language.lsk.graphLabel;
