@@ -146,6 +146,8 @@ if(isset($_POST['mail'])){
     <script src="js/svg.min.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/anim.js" defer></script>
+    <script src="js/printpdf.js" type="text/javascript"></script>
+    <script src="https://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
     <title>FinalCountdown</title>
 </head>
 
@@ -217,6 +219,8 @@ if(isset($_POST['mail'])){
         <input type="text" id="mail" name="mail">
         <button type="submit" id="export-button">Export</button>
     </form>
+
+    <button onclick="printPage()">Print PDF</button>
 
     <p>&copy; Ivan Cicka, Jan Hrćan, Jovan Kiš, Paljko Urbanek</p>
 </div>
