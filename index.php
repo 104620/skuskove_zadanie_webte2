@@ -108,8 +108,8 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
         <button type="submit" class="marginBottom" id="button"></button>
 
         <div id="div">
-            <div id="graphDiv"></div>
             <div id="animDiv"></div>
+            <div id="graphDiv"></div>
         </div>
     </form>
     <p>&copy; Ivan Cicka, Jan Hrćan, Jovan Kiš, Paljko Urbanek</p>

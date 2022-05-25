@@ -74,7 +74,7 @@ function drawMovable(canvas) {
     m2Text = canvas.text("m2").move(260, 110).font({size: 20}).fill("white");
 }
 
-setInterval(animation, 5000);
+animation();
 
 function animation() {
     // Fetch data from Octave
@@ -97,7 +97,9 @@ function animation() {
                 yValues.push(250 + 25 * x2[i]);
             }
 
-            // Create timelines
+            // Animate
+
+            setInterval(function() {
             for(let j = 0; j < xValues.length; j++) {
                 let block1 = xValues[j] / 12;
                 let block2 = (yValues[j] - (xValues[j] + 40)) / 8;
@@ -117,7 +119,7 @@ function animation() {
                         [block2 * 2 + xValues[j] + 40, 120], [block2 * 3 + xValues[j] + 40, 100],
                         [block2 * 4 + xValues[j] + 40, 120], [block2 * 5 + xValues[j] + 40, 100],
                         [block2 * 6 + xValues[j] + 40, 120], [block2 * 7 + xValues[j] + 40, 100], [yValues[j], 120]]);
-            }
+            }}, 5000);
 
         })
         .catch(err => { throw err });
