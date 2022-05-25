@@ -5,7 +5,7 @@ function plotDataChart() {
     fetch(url1)
         .then(res => res.json())
         .then((out) => {
-            GRAPH = document.getElementById("dataChart");
+            GRAPH = document.getElementById("graphDiv");
             x1 = []
             x3 = []
             var frames = []
@@ -59,12 +59,15 @@ function plotDataChart() {
                 responsive: true,
                 maintainAspectRation: true,
                 resizeDelay: 0,
-                scrollZoom: true,
+                scrollZoom: false,
+                displayModeBar: false
             };
 
             var layout = {
                 title: '',
                 showlegend: true,
+                width: 450,
+                height: 300,
                 font: {
                     family: "Nanum  Gothic",
                     size: 16
@@ -94,11 +97,11 @@ function plotDataChart() {
 
             Plotly.animate(GRAPH, frames, {
                 transition: {
-                    duration: 10,
+                    duration: 0,
                     easing: 'linear'
                 },
                 frame: {
-                    duration: 10,
+                    duration: 1,
                     redraw: false,
                 },
             });
@@ -106,14 +109,13 @@ function plotDataChart() {
             setInterval(function() {
                 Plotly.animate(GRAPH, frames, {
                     transition: {
-                        duration: 10,
+                        duration: 0,
                         easing: 'linear'
                     },
                     frame: {
-                        duration: 10,
+                        duration: 1,
                         redraw: false,
                     },
-                    // mode: mode
                 });
             },5000)
 
