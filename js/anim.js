@@ -98,6 +98,26 @@ function animation() {
             }
 
             // Animate
+            for(let j = 0; j < xValues.length; j++) {
+                let block1 = xValues[j] / 12;
+                let block2 = (yValues[j] - (xValues[j] + 40)) / 8;
+
+                m1.animate({duration: 10}).move(xValues[j], 70);
+                m1Text.animate({duration: 10}).move(xValues[j] + 10, 100);
+                m2.animate({duration: 10}).move(yValues[j], 70);
+                m2Text.animate({duration: 10}).move(yValues[j] + 10, 100);
+                upperLine.animate(10).plot([[10, 80], [yValues[j], 80]]);
+                lines[0].animate(10)
+                    .plot([[10, 120], [block1 + 10, 100], [block1 * 2 + 10, 120], [block1 * 3 + 10, 100],
+                        [block1 * 4 + 10, 120], [block1 * 5 + 10, 100], [block1 * 6 + 10, 120],
+                        [block1 * 7 + 10, 100], [block1 * 8 + 10, 120], [block1 * 9 + 10, 100],
+                        [block1 * 10 + 10, 120], [block1 * 11 + 10, 100], [xValues[j], 120]]);
+                lines[1].animate(10)
+                    .plot([[xValues[j] + 40, 120], [block2 + xValues[j] + 40, 100],
+                        [block2 * 2 + xValues[j] + 40, 120], [block2 * 3 + xValues[j] + 40, 100],
+                        [block2 * 4 + xValues[j] + 40, 120], [block2 * 5 + xValues[j] + 40, 100],
+                        [block2 * 6 + xValues[j] + 40, 120], [block2 * 7 + xValues[j] + 40, 100], [yValues[j], 120]]);
+            }
 
             setInterval(function() {
             for(let j = 0; j < xValues.length; j++) {
