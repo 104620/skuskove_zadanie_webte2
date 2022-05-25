@@ -44,10 +44,10 @@ const language = {
 // Display selected language (slovak by default)
 checkLanguage();
 
-function checkLanguage(){
+function checkLanguage() {
 
     // Remembering your previously selected language across all pages
-    if(localStorage.getItem("language")){
+    if(localStorage.getItem("language")) {
         if(localStorage.getItem("language") === "sk")
             slovak();
         else
@@ -59,7 +59,7 @@ function checkLanguage(){
 }
 
 // Change all elements text to English
-function english(){
+function english() {
     en.style.border = "0.75px solid white";
     sk.style.border = "0px";
 
@@ -73,7 +73,7 @@ function english(){
 }
 
 // Change all element text to Slovak
-function slovak(){
+function slovak() {
     sk.style.border = "0.75px solid white";
     en.style.border = "0px";
 

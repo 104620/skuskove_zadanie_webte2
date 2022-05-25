@@ -11,8 +11,6 @@ const draw = SVG()
 let canvas = draw.group();
 
 // Elements
-// let lines1 = [];
-// let lines2 = [];
 let lines = [];
 let upperLine;
 let m1;
@@ -24,7 +22,7 @@ drawCanvas(canvas);
 drawMovable(canvas);
 
 // Draw default state
-function drawCanvas(canvas){
+function drawCanvas(canvas) {
 
     // Lines
     canvas.polyline('10, 10 10, 255 450, 255').fill('none').stroke({color: 'black', width: 2});
@@ -52,39 +50,16 @@ function drawCanvas(canvas){
     canvas.text("[m]").move(410, 275).font({size: 20});
 }
 
-function drawMovable(canvas){
+function drawMovable(canvas) {
 
     // Whole line
     lines.push(canvas.polyline('10, 120 20, 100 30, 120 40, 100 50, 120 60, 100 70, 120 80, 100' +
-        ' 90, 120 100, 100 110, 120 120, 100 130, 100').fill('none').stroke({color: 'black', width: 2}));
+        ' 90, 120 100, 100 110, 120 120, 100 130, 120').fill('none').stroke({color: 'black', width: 2}));
     lines.push(canvas.polyline('170, 120 180, 100 190, 120 200, 100 210, 120 220, 100 230, 120 240, 100 250, 120')
         .fill('none').stroke({color: 'black', width: 2}));
 
     // Upper line
     upperLine = canvas.polyline('10, 80 250, 80').fill('none').stroke({color: 'black', width: 2});
-
-    // Lower line
-    // lines1.push(canvas.polyline('10, 120 20, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('20, 100 30, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('30, 120 40, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('40, 100 50, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('50, 120 60, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('60, 100 70, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('70, 120 80, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('80, 100 90, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('90, 120 100, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('100, 100 110, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('110, 120 120, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines1.push(canvas.polyline('120, 100 130, 120').fill('none').stroke({color: 'black', width: 2}));
-    //
-    // lines2.push(canvas.polyline('170, 120 180, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines2.push(canvas.polyline('180, 100 190, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines2.push(canvas.polyline('190, 120 200, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines2.push(canvas.polyline('200, 100 210, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines2.push(canvas.polyline('210, 120 220, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines2.push(canvas.polyline('220, 100 230, 120').fill('none').stroke({color: 'black', width: 2}));
-    // lines2.push(canvas.polyline('230, 120 240, 100').fill('none').stroke({color: 'black', width: 2}));
-    // lines2.push(canvas.polyline('240, 100 250, 120').fill('none').stroke({color: 'black', width: 2}));
 
     // Masses
     m1 = canvas.rect(40, 60)
@@ -99,9 +74,10 @@ function drawMovable(canvas){
     m2Text = canvas.text("m2").move(260, 110).font({size: 20}).fill("white");
 }
 
-animation();
+setInterval(animation, 5000);
 
-function animation(){
+function animation() {
+    // Fetch data from Octave
     fetch(url1)
         .then(res => res.json())
         .then((out) => {
@@ -112,16 +88,16 @@ function animation(){
                 x2.push(out.data[0][i][3])
             }
 
+            // Create path for m1 and m2
             let xValues = [];
             let yValues = [];
 
-            for(let i = 1; i < x1.length; i++){
-                xValues.push(130 + 20 * x1[i]);
-                yValues.push(250 + 20 * x2[i]);
+            for(let i = 1; i < x1.length; i++) {
+                xValues.push(130 + 25 * x1[i]);
+                yValues.push(250 + 25 * x2[i]);
             }
 
             // Create timelines
-
             for(let j = 0; j < xValues.length; j++) {
                 let block1 = xValues[j] / 12;
                 let block2 = (yValues[j] - (xValues[j] + 40)) / 8;
@@ -137,11 +113,10 @@ function animation(){
                           [block1 * 7 + 10, 100], [block1 * 8 + 10, 120], [block1 * 9 + 10, 100],
                           [block1 * 10 + 10, 120], [block1 * 11 + 10, 100], [xValues[j], 120]]);
                 lines[1].animate(10)
-                    .plot([[xValues[j] + 40, 120], [block2 + xValues[j] + 40, 100], [block2 * 2 + xValues[j] + 40, 120],
-                        [block2 * 3 + xValues[j] + 40, 100],
+                    .plot([[xValues[j] + 40, 120], [block2 + xValues[j] + 40, 100],
+                        [block2 * 2 + xValues[j] + 40, 120], [block2 * 3 + xValues[j] + 40, 100],
                         [block2 * 4 + xValues[j] + 40, 120], [block2 * 5 + xValues[j] + 40, 100],
-                        [block2 * 6 + xValues[j] + 40, 120],
-                        [block2 * 7 + xValues[j] + 40, 100], [yValues[j], 120]]);
+                        [block2 * 6 + xValues[j] + 40, 120], [block2 * 7 + xValues[j] + 40, 100], [yValues[j], 120]]);
             }
 
         })
