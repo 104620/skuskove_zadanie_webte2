@@ -37,7 +37,7 @@ const language = {
 
     // Slovak text
     lsk:{
-        mailLabel: "Vneste mail pre posielanie exportu logov",
+        mailLabel: "Vneste mail pre posielanie exportu logov ",
         button: "Potvrď",
         animLabel: "Prikáž animáciu",
         graphLabel: "Prikáž graf",

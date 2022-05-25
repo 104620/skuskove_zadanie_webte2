@@ -1,3 +1,4 @@
+// Print page function
 function printPage(){
     const doc = new jsPDF();
     var text = document.getElementById("h1").textContent;

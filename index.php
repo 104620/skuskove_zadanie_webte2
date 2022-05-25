@@ -220,7 +220,7 @@ if(isset($_POST['mail'])){
         <button type="submit" id="export-button">Export</button>
     </form>
 
-    <button onclick="printPage()">Print PDF</button>
+    <button onclick="printPage()">Print .pdf</button>
 
     <p>&copy; Ivan Cicka, Jan Hrćan, Jovan Kiš, Paljko Urbanek</p>
 </div>
