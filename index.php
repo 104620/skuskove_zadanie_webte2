@@ -1,39 +1,3 @@
-<?php
-
-$servername = "localhost";
-$username = "xhrcan";
-$password = "SQsBCnIEq5Vnxum";
-$dbname = "final";
-
-if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
-    isset($_POST['b2']) && isset($_POST['m1']) && isset($_POST['m2'])){
-
-    $currentDate = date('Y-m-d H:i:s', time());
-
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = $conn->prepare("INSERT INTO info (date, k1, k2, m1, m2, b1, b2, was_successful)
-                            VALUES(\"" . $currentDate . "\", \"". $_POST['k1'] ."\", \"" . $_POST['k2'] . "\",
-                            \"". $_POST['m1'] ."\", \"". $_POST['m2'] ."\", \"". $_POST['b1'] ."\",
-                            \"". $_POST['b2'] ."\", true)");
-        $stmt->execute();
-
-    } catch (PDOException $e) {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = $conn->prepare("INSERT INTO info (date, was_successful, error)
-                        VALUES(\"" . $currentDate . "\", false, \"" . $e->getMessage() . "\")");
-        $stmt->execute();
-    } finally {
-        $conn = null;
-    }
-}
-
-?>
-
 <!-- Dizajn trochu inspirovany pracou pana Mateja Rabeka -->
 <!doctype html>
 <html lang="en">
@@ -43,6 +7,7 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="./fei.png">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/svg.min.js" defer></script>
     <script src="js/script.js" defer></script>
@@ -63,7 +28,7 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
 
 <div class="container">
     <h1 id="h1">.</h1>
-    <form class="marginBottom" action="index.php" method="post">
+    <form class="marginBottom" action="Backend.php" method="post">
 
         <div class="grid">
             <div>
@@ -106,6 +71,7 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
         </div>
 
         <button type="submit" class="marginBottom" id="button"></button>
+        <button formaction="./ApiDescription.php" class="marginBottom">API</button>
 
         <div id="div">
             <div id="animDiv"></div>
@@ -117,5 +83,7 @@ if(isset($_POST['k1']) && isset($_POST['k2']) && isset($_POST['b1']) &&
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+<script src="js/plot.js"></script>
+<script>plotDataChart();</script>
 </body>
 </html>

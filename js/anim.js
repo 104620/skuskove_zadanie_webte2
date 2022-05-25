@@ -1,6 +1,6 @@
 const width = 400;                  // Width of the canvas
 const height = 300;                 // Height of the canvas
-let url1  = 'https://site51.webte.fei.stuba.sk/zaverecne/OctaveGeneratedFiles/xyt.json';
+let url  = 'https://site51.webte.fei.stuba.sk/zaverecne/OctaveGeneratedFiles/xyt.json';
 
 // Draw
 const draw = SVG()
@@ -78,7 +78,7 @@ animation();
 
 function animation() {
     // Fetch data from Octave
-    fetch(url1)
+    fetch(url)
         .then(res => res.json())
         .then((out) => {
             let x1 = [];

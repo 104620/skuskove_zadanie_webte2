@@ -17,6 +17,7 @@ h1 {
 button, input[type=submit] {
     background-color: #00a769;
     color: white;
+    cursor: pointer;
 }
 
 form {
@@ -109,4 +110,12 @@ abbr {
     margin: auto;
     content: url(../img/usa.png);
     cursor: pointer;
+}
+
+#graphDiv .legend .traces:nth-of-type(1) .legendtoggle {
+    display: none;
+}
+
+#graphDiv .legend .traces:nth-of-type(2) .legendtoggle {
+    display: none;
 }
