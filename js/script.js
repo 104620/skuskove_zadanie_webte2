@@ -18,6 +18,7 @@ let li3;
 let li4;
 let li5;
 let li6;
+let li7;
 
 let ivan;
 let jan;
@@ -48,6 +49,7 @@ if(document.getElementById("li1")){
     li4 = document.getElementById("li4");
     li5 = document.getElementById("li5");
     li6 = document.getElementById("li6");
+    li7 = document.getElementById("li7");
 
     ivan = document.getElementById("ivan");
     jan = document.getElementById("jan");
@@ -69,6 +71,7 @@ const language = {
         li4: "Clicking on the checkbox will show the graph",
         li5: "Clicking this button will submit your data and make a new graph and animation",
         li6: "Clicking this will direct to the API page",
+        li7: "Clicking this will export csv file with logs and send to configurating mail",
         ivan: "Ivan Cicka has been tasked on setting the CAS. He also has set up the server for us to upload our files to, and has set up the database for our data to be saved at.",
         jan: "Jan Hrćan has made the entire frontpage as well as setting up the database and code that will write the data into our database. He has also made the animation as well as this API page.",
         jovan: "Jovan Kiš has made logging system and export into CSV. He also made this API printable to a PDF file and has made it able to be sent to an email.",
@@ -87,6 +90,7 @@ const language = {
         li4: "Kliknutím na začiarkavacie políčko sa zobrazí graf",
         li5: "Kliknutím na toto tlačidlo odošlete svoje údaje a vytvoríte nový graf a animáciu",
         li6: "Kliknutím na toto prejdete na stránku API",
+        li7: "Kliknutím na toto sa posle csv subor s logmi na konfiguracny mail",
         ivan: "Ivan Cicka dostal za úlohu nastaviť CAS. Tiež nám nastavil server, na ktorý budeme odovzdávať naše súbory, a nastavil databázu, na ktorej sa majú ukladať naše údaje.",
         jan: "Jan Hrćan urobil celú titulnú stránku, ako aj nastavenie databázy a kódu, ktorý bude zapisovať údaje do našej databázy. Urobil tiež animáciu, ako aj túto stránku API.",
         jovan: "Jovan Kiš vytvoril logovací systém a export do CSV. Tiež urobil toto API vytlačiteľné do súboru PDF aj umožnil posielanie na mail.",
@@ -133,6 +137,7 @@ function english() {
         li4.textContent = language.len.li4;
         li5.textContent = language.len.li5;
         li6.textContent = language.len.li6;
+        li7.textContent = language.len.li7;
 
         ivan.textContent = language.len.ivan;
         jan.textContent = language.len.jan;
@@ -163,6 +168,7 @@ function slovak() {
         li4.textContent = language.lsk.li4;
         li5.textContent = language.lsk.li5;
         li6.textContent = language.lsk.li6;
+        li7.textContent = language.lsk.li7;
 
         ivan.textContent = language.lsk.ivan;
         jan.textContent = language.lsk.jan;
