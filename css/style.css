@@ -112,6 +112,11 @@ abbr {
     cursor: pointer;
 }
 
+img{
+    width: 1000px;
+    margin: auto auto;
+}
+
 #graphDiv .legend .traces:nth-of-type(1) .legendtoggle {
     display: none;
 }

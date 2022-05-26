@@ -71,7 +71,7 @@
         </div>
 
         <button type="submit" class="marginBottom" id="button"></button>
-        <button formaction="./ApiDescription.php" class="marginBottom">API</button>
+        <button formaction="./Api.php" class="marginBottom">API</button>
 
         <div id="div">
             <div id="animDiv"></div>
