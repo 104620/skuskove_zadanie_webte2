@@ -17,7 +17,17 @@
 
 <body>
 
-<img src="iko.png" alt="api">
+<div id="nav">
+    <div class="flag">
+        <abbr title="Slovenčina" id="sk" onclick="slovak()"></abbr>
+        <abbr title="English" id="us" onclick="english()"></abbr>
+    </div>
+</div>
+
+<br><br>
+
+<img src="iko.png" alt="api" class="center">
+
 <ol class="marginBottom">
     <li id="li1"></li>
     <li id="li2"></li>

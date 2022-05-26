@@ -29,6 +29,16 @@ if(document.getElementById("animLabel")){
     graphLabel = document.getElementById("graphLabel");
     button = document.getElementById("button");
     h1 = document.getElementById("h1");
+
+    // Toggle animDiv
+    anim.addEventListener("change", () => {
+        animDiv.classList.toggle("active");
+    })
+
+// Toggle graphDiv
+    graph.addEventListener("change", () => {
+        graphDiv.classList.toggle("active");
+    })
 }
 
 if(document.getElementById("li1")){
@@ -44,16 +54,6 @@ if(document.getElementById("li1")){
     jovan = document.getElementById("jovan");
     paljko = document.getElementById("paljko");
 }
-
-// Toggle animDiv
-anim.addEventListener("change", () => {
-    animDiv.classList.toggle("active");
-})
-
-// Toggle graphDiv
-graph.addEventListener("change", () => {
-    graphDiv.classList.toggle("active");
-})
 
 // JSON file which contains all Slovak and English text
 const language = {
@@ -71,7 +71,7 @@ const language = {
         li6: "Clicking this will direct to the API page",
         ivan: "Ivan Cicka has been tasked on setting the CAS. He also has set up the server for us to upload our files to, and has set up the database for our data to be saved at.",
         jan: "Jan Hrćan has made the entire frontpage as well as setting up the database and code that will write the data into our database. He has also made the animation as well as this API page.",
-        jovan: "Jovan Kiš has made logging system and export into CSV. He also made this API printable to a PDF file.",
+        jovan: "Jovan Kiš has made logging system and export into CSV. He also made this API printable to a PDF file and has made it able to be sent to an email.",
         paljko: "Paljko Urbanek has created the animated graph. He also set up the github for us to branch our commits. He was also tasked to merge all of our branches into main."
     },
 
@@ -89,7 +89,7 @@ const language = {
         li6: "Kliknutím na toto prejdete na stránku API",
         ivan: "Ivan Cicka dostal za úlohu nastaviť CAS. Tiež nám nastavil server, na ktorý budeme odovzdávať naše súbory, a nastavil databázu, na ktorej sa majú ukladať naše údaje.",
         jan: "Jan Hrćan urobil celú titulnú stránku, ako aj nastavenie databázy a kódu, ktorý bude zapisovať údaje do našej databázy. Urobil tiež animáciu, ako aj túto stránku API.",
-        jovan: "Jovan Kiš vytvoril logovací systém a export do CSV. Tiež urobil toto API vytlačiteľné do súboru PDF.",
+        jovan: "Jovan Kiš vytvoril logovací systém a export do CSV. Tiež urobil toto API vytlačiteľné do súboru PDF aj umožnil posielanie na mail.",
         paljko: "Paljko Urbánek vytvoril animovaný graf. Nastavil nám tiež github na vetvenie našich záväzkov. Tiež mal za úlohu zlúčiť všetky naše pobočky do main."
     }
 }

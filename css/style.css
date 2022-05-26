@@ -112,8 +112,9 @@ abbr {
     cursor: pointer;
 }
 
-img{
+.center{
     width: 1000px;
+    display: block;
     margin: auto auto;
 }
 
